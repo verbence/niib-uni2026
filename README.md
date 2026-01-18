@@ -1,1 +1,1 @@
-# niibsz-uni2026
+# niib-uni2026
