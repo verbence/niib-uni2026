@@ -1,0 +1,713 @@
+Alapkonfiguráció
+
+GFF-GT01SW
+ena
+clock set 12:00 05 jan 2026
+conf t
+hostname GFF-GT01SW
+no ip domain-l
+ip domain name gazdasagi.ptuni.hu
+ena sec class123
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaférés torvenyellenes!#
+no cdp run
+ip ftp username GFF-GT01SW
+ip ftp password cisco123
+service password
+line con 0
+password cisco123
+login
+logging sync
+exec-timeout 5
+exit
+line vty 0 15
+password cisco123
+login local
+logging sync
+transport input ssh
+exec-timeout 5
+crypto key gen rsa
+4096
+user Admin1 pri 15 sec class123
+user Admin2 pri 15 sec class123
+ip ssh ver 2
+
+
+GFF-GT02SW
+ena
+clock set 12:00 05 jan 2026
+conf t
+hostname GFF-GT02SW
+no ip domain-l
+ip domain name gazdasagi.ptuni.hu
+ena sec class123
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaférés torvenyellenes!#
+no cdp run
+ip ftp username GFF-GT02SW
+ip ftp password cisco123
+service password
+line con 0
+password cisco123
+login
+logging sync
+exec-timeout 5
+exit
+line vty 0 15
+password cisco123
+login local
+logging sync
+transport input ssh
+exec-timeout 5
+crypto key gen rsa
+4096
+user Admin1 pri 15 sec class123
+user Admin2 pri 15 sec class123
+ip ssh ver 2
+
+GFF-GT03SW
+ena
+clock set 12:00 05 jan 2026
+conf t
+hostname GFF-GT03SW
+no ip domain-l
+ip domain name gazdasagi.ptuni.hu
+ena sec class123
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaférés torvenyellenes!#
+no cdp run
+ip ftp username GFF-GT03SW
+ip ftp password cisco123
+service password
+line con 0
+password cisco123
+login
+logging sync
+exec-timeout 5
+exit
+line vty 0 15
+password cisco123
+login local
+logging sync
+transport input ssh
+exec-timeout 5
+crypto key gen rsa
+4096
+user Admin1 pri 15 sec class123
+user Admin2 pri 15 sec class123
+ip ssh ver 2
+
+
+GFF-GT04SW
+ena
+clock set 12:00 05 jan 2026
+conf t
+hostname GFF-GT04SW
+no ip domain-l
+ip domain name gazdasagi.ptuni.hu
+ena sec class123
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaférés torvenyellenes!#
+no cdp run
+ip ftp username GFF-GT04SW
+ip ftp password cisco123
+service password
+line con 0
+password cisco123
+login
+logging sync
+exec-timeout 5
+exit
+line vty 0 15
+password cisco123
+login local
+logging sync
+transport input ssh
+exec-timeout 5
+crypto key gen rsa
+4096
+user Admin1 pri 15 sec class123
+user Admin2 pri 15 sec class123
+ip ssh ver 2
+
+
+GFF-ESW
+ena
+clock set 12:00 05 jan 2026
+conf t
+hostname GFF-ESW
+no ip domain-l
+ip domain name gazdasagi.ptuni.hu
+ena sec class123
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaférés torvenyellenes!#
+no cdp run
+ip ftp username GFF-ESW
+ip ftp password cisco123
+service password
+line con 0
+password cisco123
+login
+logging sync
+exec-timeout 5
+exit
+line vty 0 15
+password cisco123
+login local
+logging sync
+transport input ssh
+exec-timeout 5
+crypto key gen rsa
+4096
+user Admin1 pri 15 sec class123
+user Admin2 pri 15 sec class123
+ip ssh ver 2
+
+GFF-MLS-1
+ena
+clock set 12:00 05 jan 2026
+conf t
+hostname GFF-MLS-1
+no ip domain-l
+ip routing
+ip domain name gazdasagi.ptuni.hu
+ena sec class123
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaférés torvenyellenes!#
+no cdp run
+ip ftp username GFF-MLS-1
+ip ftp password cisco123
+service password
+line con 0
+password cisco123
+login
+logging sync
+exec-timeout 5
+exit
+line vty 0 15
+password cisco123
+login local
+logging sync
+transport input ssh
+exec-timeout 5
+crypto key gen rsa
+4096
+user Admin1 pri 15 sec class123
+user Admin2 pri 15 sec class123
+ip ssh ver 2
+
+GFF-RTR
+ena
+clock set 12:00 05 jan 2026
+conf t
+hostname GFF-RTR
+no ip domain-l
+ip routing
+ip domain name routing.hbone.hu
+ena sec cisco123
+banner motd #HBONE Puskas Tivadar Egyetem Gazdasagi Router-re csatlakozott, illetektelen hozzaferes torvenyellenes!#
+no cdp run
+service password
+line con 0
+password cisco123
+login
+logging sync
+exec-timeout 5
+exit
+line vty 0 15
+password cisco123
+login local
+logging sync
+transport input ssh
+exec-timeout 5
+crypto key gen rsa
+4096
+user HBONEAdmin pri 15 sec class123
+ip ssh ver 2
+
+
+PTE-RTR
+ena
+clock set 12:00 05 jan 2026
+conf t
+hostname PTE-RTR
+no ip domain-l
+ip routing
+ip domain name core.ptuni.hu
+ena sec class123
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaférés torvenyellenes!#
+no cdp run
+ip ftp username PTE-RTR
+ip ftp password cisco123
+service password
+line con 0
+password cisco123
+login
+logging sync
+exec-timeout 5
+exit
+line vty 0 15
+password cisco123
+login local
+logging sync
+transport input ssh
+exec-timeout 5
+crypto key gen rsa
+4096
+user Admin1 pri 15 sec class123
+user Admin2 pri 15 sec class123
+ip ssh ver 2
+
+
+
+
+VLAN-ok, hozzárendelések
+
+GFF-GT01SW
+vlan 10
+name Diak
+exit
+vlan 20
+name Tanar
+exit
+vlan 40
+name Guest
+exit
+vlan 99
+name MGMTNative
+exit
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+switchport nonego
+desc GFF-GT01-1 fele
+exit
+
+int fa0/2
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT01-N1 fele
+exit
+
+int fa0/3
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT01-2 fele
+exit
+
+int fa0/4
+switchport mode access
+switchport access vlan 99
+switchport nonego
+desc GFF-GT01AP fele
+exit
+
+int gig0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-MLS-1 fele
+exit
+
+
+GFF-GT02SW
+vlan 10
+name Diak
+exit
+vlan 20
+name Tanar
+exit
+vlan 40
+name Guest
+exit
+vlan 99
+name MGMTNative
+exit
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+switchport nonego
+desc GFF-GT02-1 fele
+exit
+
+int fa0/2
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT02-N1 fele
+exit
+
+int fa0/3
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT02-T1,GFF-GT02-2 fele
+exit
+
+int gig0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-MLS-1 fele
+exit
+
+
+
+GFF-GT03SW
+
+vlan 10
+name Diak
+exit
+vlan 20
+name Tanar
+exit
+vlan 40
+name Guest
+exit
+vlan 99
+name MGMTNative
+exit
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+switchport nonego
+desc GFF-GT03-1 fele
+exit
+
+int fa0/2
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT03-N1 fele
+exit
+
+int fa0/3
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT03-2 fele
+exit
+
+int fa0/4
+switchport mode access
+switchport access vlan 99
+switchport nonego
+desc GFF-GT03AP fele
+exit
+
+int gig0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-MLS-1 fele
+exit
+
+
+GFF-GT04SW
+
+vlan 10
+name Diak
+exit
+vlan 20
+name Tanar
+exit
+vlan 40
+name Guest
+exit
+vlan 99
+name MGMTNative
+exit
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+switchport nonego
+desc GFF-GT04-1 fele
+exit
+
+int fa0/2
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT04-N1 fele
+exit
+
+int fa0/3
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT04-2 fele
+exit
+
+int fa0/4
+switchport mode access
+switchport access vlan 99
+switchport nonego
+desc GFF-GT04AP fele
+exit
+
+int gig0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-MLS-1 fele
+exit
+
+
+GFF-ESW
+
+vlan 10
+name Diak
+exit
+vlan 20
+name Tanar
+exit
+vlan 40
+name Guest
+exit
+vlan 99
+name MGMTNative
+exit
+
+int fa0/1
+switchport mode access
+switchport access vlan 99
+switchport nonego
+desc GFF-EAP1 fele
+exit
+
+int fa0/2
+switchport mode access
+switchport access vlan 99
+switchport nonego
+desc GFF-EAP2 fele
+exit
+
+int gig0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-MLS-1 fele
+exit
+
+GFF-MLS-1
+
+vlan 10
+name Diak
+exit
+vlan 20
+name Tanar
+exit
+vlan 40
+name Guest
+exit
+vlan 99
+name MGMTNative
+exit
+
+int Gig1/0/2
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-B-1 fele
+exit
+
+int Gig1/0/3
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-BAP fele
+exit
+
+int Gig1/0/4
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT01SW fele
+exit
+
+int Gig1/0/5
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT02SW fele
+exit
+
+int Gig1/0/6
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT03SW fele
+exit
+
+int Gig1/0/7
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT04SW fele
+exit
+
+int Gig1/0/8
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-ESW fele
+exit
+
+
+IP-k
+
+GFF-MLS-1
+int vlan 10
+ip add 172.16.8.1 255.255.254.0
+desc Diak SVI
+no sh
+exit
+
+int vlan 20
+ip add 172.16.18.1 255.255.255.224
+desc Tanar SVI
+no sh
+exit
+
+int vlan 40
+ip add 172.16.14.1 255.255.255.0
+desc Guest SVI
+no sh
+exit
+
+int vlan 99
+ip add 172.16.17.65 255.255.255.192
+desc Management+Native SVI
+no sh
+exit
+
+int gig1/0/1
+no switchport
+ip add 10.0.0.45 255.255.255.252
+desc HBONE/PTE-RTR fele
+no sh
+exit
+
+
+PTE-RTR
+
+int gig1/0/6
+no switchport
+ip add 10.0.0.50 255.255.255.252
+no sh
+desc HBONE/GFF-MLS-1 fele
+exit
+
+int gig1/0/7
+no switchport
+ip add 10.0.0.1 255.255.255.252
+no sh
+desc HBONE/IFF-LSW1 fele
+exit
+
+int gig1/0/5
+no switchport
+ip add 10.0.0.25 255.255.255.252
+no sh
+desc HBONE/MFF-MLS-1 fele
+exit
+
+int gig1/0/2
+no switchport
+ip add 192.168.1.1 255.255.255.248
+no sh
+desc PTE-S01 fele
+exit
+
+int gig1/0/3
+no switchport
+ip add 192.168.1.9 255.255.255.248
+no sh
+desc PTE-S02 fele
+exit
+
+int gig1/0/4
+no switchport
+ip add 10.1.1.1 255.255.255.252
+no sh
+desc PTE-ASA fele
+exit
+
+int gig1/0/1
+no switchport
+ip add 192.168.1.17 255.255.255.248
+no sh
+desc PTE-WLC fele
+exit
+
+
+GFF-RTR
+
+int gig0/0/0
+ip add 10.0.0.46 255.255.255.252
+no sh
+desc GFF-MLS-1 fele
+exit
+
+int gig0/0/1
+ip add 10.0.0.49 255.255.255.252
+no sh
+desc PTE-RTR fele
+exit
+
+
+GFF-GT01SW
+ip default-gate 172.16.17.65
+
+int vlan 99
+ip add 172.16.17.70 255.255.255.192
+desc Management interface
+no sh
+exit
+
+GFF-GT02SW
+ip default-gate 172.16.17.65
+
+int vlan 99
+ip add 172.16.17.71 255.255.255.192
+desc Management interface
+no sh
+exit
+
+GFF-GT03SW
+ip default-gate 172.16.17.65
+
+int vlan 99
+ip add 172.16.17.72 255.255.255.192
+desc Management interface
+no sh
+exit
+
+GFF-GT04SW
+ip default-gate 172.16.17.65
+
+int vlan 99
+ip add 172.16.17.73 255.255.255.192
+desc Management interface
+no sh
+exit
+
+GFF-ESW
+ip default-gate 172.16.17.65
+
+int vlan 99
+ip add 172.16.17.74 255.255.255.192
+desc Management interface
+no sh
+exit
