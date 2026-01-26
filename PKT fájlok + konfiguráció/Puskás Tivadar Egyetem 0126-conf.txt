@@ -1,0 +1,17 @@
+OSPF, statikus route ASA/WAN felé
+PTE-RTR 
+
+ip routing
+ip route 0.0.0.0 0.0.0.0 gig1/0/4
+router ospf 10
+router 1.1.1.1
+netw 10.0.0.24 0.0.0.3 area 0
+netw 10.0.0.48 0.0.0.3 area 0
+netw 10.0.0.0 0.0.0.3 area 0
+netw 10.1.1.0 0.0.0.3 area 0
+netw 192.168.1.0 0.0.0.7 area 0
+netw 192.168.1.8 0.0.0.7 area 0
+def ori
+passive gig1/0/1
+passive gig1/0/2
+passive gig1/0/3
