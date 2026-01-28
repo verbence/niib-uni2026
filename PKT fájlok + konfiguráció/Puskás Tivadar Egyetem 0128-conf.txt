@@ -1,0 +1,47 @@
+Gazdasági kar, Gazdasági HBONE edge router OSPF
+
+GFF-MLS-1
+router ospf 10
+router 10.10.10.1
+netw 10.0.0.44 0.0.0.3 area 0
+netw 172.16.8.0 0.0.1.255 area 0
+netw 172.16.18.0 0.0.0.31 area 0
+netw 172.16.14.0 0.0.0.255 area 0
+netw 172.16.17.64 0.0.0.63 area 0
+netw 192.168.1.0 0.0.0.7 area 0
+netw 192.168.1.8 0.0.0.7 area 0
+netw 192.168.1.16 0.0.0.7 area 0
+passive gig1/0/2
+passive gig1/0/3
+passive gig1/0/4
+passive gig1/0/5
+passive gig1/0/6
+passive gig1/0/7
+passive gig1/0/8
+exit
+
+GFF-RTR
+router ospf 10
+router 10.10.10.2
+netw 10.0.0.44 0.0.0.3 area 0
+netw 10.0.0.48 0.0.0.3 area 0
+exit
+
+WLC konfig
+login: Admin
+pass: Cisco123!
+System Name: PTE-WLC
+Date & Time: 01/05/2026 12:00
+Timezone: Amsterdam, Berlin, Rome, Vienna
+Management IP Address: 192.168.1.18
+Subnet Mask: 255.255.255.248
+Default Gateway: 192.168.1.17
+
+Employee Network bekapcsolva
+Network Name: Tanar
+Security: WPA2 Personal
+Passphrase: TanarWLAN
+Confirm Passphrase: TanarWLAN
+
+
+	
