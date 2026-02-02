@@ -1,0 +1,1376 @@
+x = törölve
+Alap: BM branch Puskás Tivadar Egyetem0128.pkt
+
+Elvégzett konfiguráció szekciók (0125-conf): 
+- Alapkonfiguráció
+- IP-k
+
+Elvégzett konfiguráció szekciók (0126-conf):
+- OSPF, statikus route ASA/WAN felé
+	rep. ip route 0.0.0.0 0.0.0.0 gig1/0/4 -> ip route 0.0.0.0 0.0.0.0 10.1.1.2
+	+ ip route 172.16.15.0 255.255.255.192 10.0.0.2 120
+	+ ip route 172.16.16.128 255.255.255.192 10.0.0.2 120
+
+Elvégzett konfiguráció szekciók (0128-conf):
+- Gazdasági kar, Gazdasági HBONE edge router OSPF
+	x netw 192.168.1.0 0.0.0.7 area 0
+	x netw 192.168.1.8 0.0.0.7 area 0
+	x netw 192.168.1.16 0.0.0.7 area 0
+	x Teljes WLC konfiguráció
+
+
+Változott konfiguráció (0125-conf):
+- conf-0125: VTP implementálása miatt GFF-MLS-1 lett a VTP szerver, a többi karon lévő access switch klienssé vált, és csak az access és trunk portokat adtuk meg azon switcheknél. Változtatott konfiguráció alul, VLAN-ok, hozzárendelések szekciót cserélve a 0125-conf fájlban:
+
+
+GFF-MLS-1
+
+vlan 10
+name Diak
+exit
+vlan 20
+name Tanar
+exit
+vlan 40
+name Guest
+exit
+vlan 99
+name MGMTNative
+exit
+
+vtp ver 2
+vtp mode server
+vtp domain gazdasagi.ptuni.hu
+vtp password GazdasagiVLAN
+
+int Gig1/0/2
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-B-1 fele
+exit
+
+int Gig1/0/3
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-BAP fele
+exit
+
+int Gig1/0/4
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT01SW fele
+exit
+
+int Gig1/0/5
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT02SW fele
+exit
+
+int Gig1/0/6
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT03SW fele
+exit
+
+int Gig1/0/7
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT04SW fele
+exit
+
+int Gig1/0/8
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-ESW fele
+exit
+
+
+
+GFF-GT01SW
+
+vtp ver 2
+vtp mode client
+vtp domain gazdasagi.ptuni.hu
+vtp password GazdasagiVLAN
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+switchport nonego
+desc GFF-GT01-1 fele
+exit
+
+int fa0/2
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT01-N1 fele
+exit
+
+int fa0/3
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT01-2 fele
+exit
+
+int fa0/4
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT01AP fele
+exit
+
+
+int gig0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-MLS-1 fele
+exit
+
+
+GFF-GT02SW
+
+vtp ver 2
+vtp mode client
+vtp domain gazdasagi.ptuni.hu
+vtp password GazdasagiVLAN
+
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+switchport nonego
+desc GFF-GT02-1 fele
+exit
+
+int fa0/2
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT02-N1 fele
+exit
+
+int fa0/3
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT02-T1,GFF-GT02-2 fele
+exit
+
+int gig0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-MLS-1 fele
+exit
+
+
+
+GFF-GT03SW
+
+vtp ver 2
+vtp mode client
+vtp domain gazdasagi.ptuni.hu
+vtp password GazdasagiVLAN
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+switchport nonego
+desc GFF-GT03-1 fele
+exit
+
+int fa0/2
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT03-N1 fele
+exit
+
+int fa0/3
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT03-2 fele
+exit
+
+int fa0/4
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT03AP fele
+exit
+
+int gig0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-MLS-1 fele
+exit
+
+
+GFF-GT04SW
+
+vtp ver 2
+vtp mode client
+vtp domain gazdasagi.ptuni.hu
+vtp password GazdasagiVLAN
+
+int fa0/1
+switchport mode access
+switchport access vlan 10
+switchport nonego
+desc GFF-GT04-1 fele
+exit
+
+int fa0/2
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT04-N1 fele
+exit
+
+int fa0/3
+switchport mode access
+switchport access vlan 20
+switchport nonego
+desc GFF-GT04-2 fele
+exit
+
+int fa0/4
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-GT03AP fele
+exit
+
+int gig0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-MLS-1 fele
+exit
+
+
+GFF-ESW
+
+vtp ver 2
+vtp mode client
+vtp domain gazdasagi.ptuni.hu
+vtp password GazdasagiVLAN
+
+int fa0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-EAP1 fele
+exit
+
+int fa0/2
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-EAP2 fele
+exit
+
+int gig0/1
+switchport mode trunk
+switchport trunk all vlan 10,20,40,99
+switchport trunk nat vlan 99
+switchport nonego
+desc GFF-MLS-1 fele
+exit
+
+
+-------------------------------------------------
+
+0201 konfiguráció:
+
+GFF-MLS-1
+
+int vlan 10
+ip helper 192.168.1.2
+exit
+int vlan 20
+ip helper 192.168.1.2
+exit
+int vlan 40
+ip helper 192.168.1.2
+exit
+int vlan 99
+ip helper 192.168.1.2
+exit
+
+
+
+PTE-S01:
+Desktop > IP Configuration:
+IPv4: 192.168.1.2
+Subnet Mask: 255.255.255.248
+Default Gateway: 192.168.1.1
+
+Services > AAA:
+Radius Port: 1615
+Network Configuration:
+Client Name: GFF-WLC
+Client IP: 172.16.17.66
+Server Type: Radius
+Secret: GazdasagiWLAN
+
+Client Name: MFF-WLC
+Client IP: 172.16.16.201
+Server Type: Radius
+Secret: MernokiWLAN
+
+Client Name: IFF-WLC
+Client IP:
+Server Type: Radius
+Secret: InformatikaWLAN
+
+
+User Setup:
+User: g-tanar	Pass: Cisco123!
+User: g-diak	Pass: PTEGDiak
+User: m-vendeg	Pass: PTEMVendeg
+User: m-tanar	Pass: Cisco123!
+User: m-diak	Pass: PTEMDiak
+User: g-vendeg	Pass: PTEGVendeg
+User: i-diak	Pass: PTEIDiak
+User: i-gh	Pass: GHwlan
+User: i-tanar	Pass: Cisco123!
+User: i-vendeg	Pass: PTEIVendeg
+
+
+Services > DHCP:
+serverPool (Gazdasági VLAN 99):
+Default Gateway: 172.16.17.65
+DNS: 192.168.1.2
+Start IP: 172.16.17.80
+Subnet: 255.255.255.192
+
+serverPool.g.40 (Gazdasági VLAN 40):
+Default Gateway: 172.16.14.1
+DNS: 192.168.1.2
+Start IP: 172.16.14.10
+Subnet: 255.255.255.0
+
+serverPool.g.20 (Gazdasági VLAN 20):
+Default Gateway: 172.16.18.1
+DNS: 192.168.1.2
+Start IP: 172.16.18.10
+Subnet: 255.255.255.224
+TFTP Server: 192.168.1.2
+
+serverPool.g.10 (Gazdasági VLAN 10):
+Default Gateway: 172.16.8.1
+DNS: 192.168.1.2
+Start IP: 172.16.9.1
+Subnet: 255.255.254.0
+
+serverPool.m.99 (Mérnöki VLAN 99):
+Default Gateway: 172.16.16.193
+DNS: 192.168.1.2
+Start IP: 172.16.16.208
+Subnet: 255.255.255.192
+
+serverPool.m.40 (Mérnöki VLAN 40):
+Default Gateway: 172.16.12.1
+DNS Server: 192.168.1.2
+Start IP: 172.16.12.10
+Subnet: 255.255.255.0
+
+serverPool.m.20 (Mérnöki VLAN 20):
+Default Gateway: 172.16.17.193
+DNS Server: 192.168.1.2
+Start IP: 172.16.17.202
+Subnet: 255.255.255.224
+
+serverPool.m.10 (Mérnöki VLAN 10):
+Default Gateway: 172.16.4.1
+DNS Server: 192.168.1.2
+Start IP: 172.16.5.1
+Subnet: 255.255.254.0
+
+serverPool.m.99.2 (Mérnöki emelet VLAN 99):
+Default Gateway: 172.16.17.1
+DNS Server: 192.168.1.2
+Start IP: 172.16.17.16
+Subnet: 255.255.255.192
+
+serverPool.m.40.2 (Mérnöki emelet VLAN 40):
+Default Gateway: 172.16.13.1
+DNS Server: 192.168.1.2
+Start IP: 172.16.13.10
+Subnet: 255.255.255.0
+
+serverPool.m.20.2 (Mérnöki emelet VLAN 20):
+Default Gateway: 172.16.17.225
+DNS Server: 192.168.1.2
+Start IP: 172.16.17.236
+Subnet: 255.255.255.224
+
+serverPool.m.10.2 (Mérnöki emelet VLAN 10):
+Default Gateway: 172.16.6.1
+DNS Server: 192.168.1.2
+Start IP: 172.16.6.11
+Subnet: 255.255.254.0
+
+serverPool.i.99 (Informatika VLAN 99):
+Default Gateway: 172.16.16.126
+DNS Server: 192.168.1.2
+Start IP: 172.16.16.80
+Subnet: 255.255.255.192
+
+serverPool.i.40 (Informatika VLAN 40):
+Default Gateway: 172.16.10.254
+DNS Server: 192.168.1.2
+Start IP: 172.16.10.10
+Subnet: 255.255.255.0
+
+serverPool.i.20 (Informatika VLAN 20):
+Default Gateway: 172.16.17.158
+DNS Server: 192.168.1.2
+Start IP: 172.16.17.138
+Subnet: 255.255.255.224
+
+serverPool.i.10 (Informatika VLAN 10):
+Default Gateway: 172.16.1.254
+DNS Server: 192.168.1.2
+Start IP: 172.16.1.1
+Subnet: 255.255.254.0
+
+serverPool.i.99.2 (Informatika emelet VLAN 99):
+Default Gateway: 172.16.16.190
+DNS: 192.168.1.2
+Start IP: 172.16.16.144
+Subnet: 255.255.255.192
+
+serverPool.i.40.2 (Informatika emelet VLAN 40):
+Default Gateway: 172.16.11.254
+DNS Server: 192.168.1.2
+Start IP: 172.16.12.10
+Subnet: 255.255.255.0
+
+serverPool.i.30.2 (Informatika emelet VLAN 40):
+Default Gateway: 172.16.15.62
+DNS Server: 192.168.1.2
+Start IP: 172.16.15.10
+Subnet: 255.255.255.192
+
+serverPool.i.20.2 (Informatika emelet VLAN 20):
+Default Gateway: 172.16.17.190
+DNS Server: 192.168.1.2
+Start IP: 172.16.17.170
+Subnet: 255.255.255.224
+
+serverPool.i.10.2 (Informatika emelet VLAN 10):
+Default Gateway: 172.16.3.254
+DNS Server: 192.168.1.2
+Start IP: 172.16.2.10
+Subnet: 255.255.254.0
+
+
+
+PTE-S02:
+Desktop > IP Configuration:
+IPv4: 192.168.1.10
+Subnet Mask: 255.255.255.248
+Default Gateway: 192.168.1.9
+DNS Server: 192.168.1.2
+
+
+
+GFF-WLC:
+Management interface:
+IP: 172.16.17.81
+Subnet: 255.255.255.192
+Default Gateway: 172.16.17.65
+DNS: 192.168.1.2
+
+Setup:
+login: Admin
+pass: Cisco123
+System Name: GFF-WLC
+Date & Time: 01/05/2026 12:00
+Timezone: Amsterdam, Berlin, Rome, Vienna
+Management IP Address: 172.16.17.81
+Subnet Mask: 255.255.255.192
+Default Gateway: 172.16.17.65
+
+Employee Network bekapcsolva
+Network Name: Tanar
+Security: WPA2 Personal
+Passphrase: TanarWLAN
+Confirm Passphrase: TanarWLAN
+
+WLANs:
+Tanar WLAN törlése
+
+
+Controller > Interfaces:
+management:
+Primary DHCP Server: 192.168.1.2
+
+Controller > Interfaces > New...:
+Name: Guest-gazdasagi
+VLAN ID: 40
+Port Number: 1
+IP: 172.16.14.2
+Netmask: 255.255.255.0
+Gateway: 172.16.14.1
+DHCP: 192.168.1.2
+
+Name: Tanar-gazdasagi
+VLAN ID: 20
+Port Number: 1
+IP: 172.16.18.2
+Netmask: 255.255.255.224
+Gateway: 172.16.18.1
+DHCP: 192.168.1.2
+
+Name: Diak-gazdasagi
+VLAN ID: 10
+Port Number: 1
+IP: 172.16.8.2
+Netmask: 255.255.254.0
+Gateway: 172.16.8.1
+DHCP: 192.168.1.2
+
+
+
+Controller > Internal DHCP Server > DHCP Scope:
+day0-dhcp-mgmt törlése
+
+Security > RADIUS > New...
+IP: 192.168.1.2
+Shared Secret: GazdasagiWLAN
+Port Number: 1615
+
+WLANs > Create New...
+
+General:
+Profile Name: pte-gazd-diak
+SSID: pte-gazd-diak
+Enable check
+Interface: Diak-gazdasagi
+
+Security:
+Layer 2 Security: WPA+WPA2
+WPA2 Policy check
+802.1X check
+AAA Servers: 
+Server 1: 192.168.1.2:1615
+
+Advanced:
+FlexConnect Local Switching check
+
+
+General:
+Profile Name: pte-gazd-tanar
+SSID: pte-gazd-tanar
+Enable check
+Interface: Tanar-gazdasagi
+
+Security:
+Layer 2 Security: WPA+WPA2
+WPA2 Policy check
+802.1X check
+PSK uncheck
+AAA Servers: 
+Server 1: 192.168.1.2:1615
+
+Advanced:
+FlexConnect Local Switching check
+
+
+General:
+Profile Name: pte-gazd-vendeg
+SSID: pte-gazd-vendeg
+Enable check
+Interface: Vendeg-gazdasagi
+
+Security:
+Layer 2 Security: WPA+WPA2
+WPA2 Policy check
+802.1X check
+AAA Servers: 
+Server 1: 192.168.1.2:1615
+
+Advanced:
+FlexConnect Local Switching check
+
+
+
+WLANs > AP Groups
+
+Group Name: Gazdasagi-AP
+Description: Gazdasagi kar WLAN
+SSID-k:
+- pte-gazd-tanar
+- pte-gazd-diak
+- pte-gazd-vendeg
+APs:
+- GFF-GT01AP check
+- GFF-GT03AP check
+- GFF-GT04AP check
+- GFF-EAP1 check
+- GFF-EAP2 check
+- GFF-BAP check
+
+
+
+
+
+
+MFF-WLC:
+
+Management interface:
+IP: 172.16.16.201
+Subnet: 255.255.255.192
+Default Gateway: 172.16.16.193
+DNS: 192.168.1.2
+
+Setup:
+login: Admin
+pass: Cisco123
+System Name: MFF-WLC
+Date & Time: 01/05/2026 12:00
+Timezone: Amsterdam, Berlin, Rome, Vienna
+Management IP Address: 172.16.16.201
+Subnet Mask: 255.255.255.192
+Default Gateway: 172.16.16.193
+
+Employee Network bekapcsolva
+Network Name: Tanar
+Security: WPA2 Personal
+Passphrase: TanarWLAN
+Confirm Passphrase: TanarWLAN
+
+WLANs:
+Tanar WLAN törlése
+
+Controller > Interfaces:
+management:
+Primary DHCP Server: 192.168.1.2
+
+Controller > Interfaces > New:
+
+Name: Guest-mernoki
+Port Number: 1
+VLAN ID: 40
+IP: 172.16.12.2
+Netmask: 255.255.255.0
+Gateway: 172.16.12.1
+DHCP: 192.168.1.2
+
+Name: Tanar-mernoki
+Port Number: 1
+VLAN ID: 20
+IP: 172.16.17.194
+Netmask: 255.255.255.224
+Gateway: 172.16.17.193
+DHCP: 192.168.1.2
+
+Name: Diak-mernoki
+Port Number: 1
+VLAN ID: 10
+IP: 172.16.4.2
+Netmask: 255.255.254.0
+Gateway: 172.16.4.1
+DHCP: 192.168.1.2
+
+
+Controller > Internal DHCP Server > DHCP Scope:
+day0-dhcp-mgmt törlése
+
+Security > RADIUS > New...
+IP: 192.168.1.2
+Shared Secret: MernokiWLAN
+Port Number: 1615
+
+
+WLANs > Create New...
+General:
+Profile Name: pte-mernoki-diak
+SSID: pte-mernoki-diak
+Enable check
+Interface: Diak-mernoki
+
+Security:
+Layer 2 Security: WPA+WPA2
+WPA2 Policy check
+802.1X check
+AAA Servers:
+Server 1: 192.168.1.2:1615
+
+Advanced:
+FlexConnect Local Switching check
+
+
+General:
+Profile Name: pte-mernoki-tanar
+SSID: pte-mernoki-tanar
+Enable check
+Interface: Tanar-mernoki
+
+Security:
+Layer 2 Security: WPA+WPA2
+WPA2 Policy check
+802.1X check
+AAA Servers:
+Server 1: 192.168.1.2:1615
+
+Advanced:
+FlexConnect Local Switching check
+
+
+General:
+Profile Name: pte-mernoki-vendeg
+SSID: pte-mernoki-vendeg
+Enable check
+Interface: Guest-mernoki
+
+Security:
+Layer 2 Security: WPA+WPA2
+WPA2 Policy check
+802.1X check
+AAA Servers:
+Server 1: 192.168.1.2:1615
+
+Advanced:
+FlexConnect Local Switching check
+
+
+WLANs > AP Groups:
+Group Name: Mernoki-AP
+Description: Mernoki kar WLAN
+SSID-k
+- pte-mernoki-tanar
+- pte-mernoki-vendeg
+- pte-mernoki-diak
+APs:
+- MFF-BAP check
+- MFF-MT04AP check
+
+
+
+IFF-WLC:
+Management interface:
+IP: 172.16.16.72
+Subnet: 255.255.255.192
+Default Gateway: 172.16.16.126
+DNS: 192.168.1.2
+
+Setup:
+login: Admin
+pass: Cisco123
+System Name: IFF-WLC
+Date & Time: 01/05/2026 12:00
+Timezone: Amsterdam, Berlin, Rome, Vienna
+Management IP Address: 172.16.16.72
+Subnet Mask: 255.255.255.192
+Default Gateway: 172.16.16.126
+
+Employee Network bekapcsolva
+Network Name: Tanar
+Security: WPA2 Personal
+Passphrase: TanarWLAN
+Confirm Passphrase: TanarWLAN
+
+WLANs:
+Tanar WLAN törlése
+
+
+Controller > Interfaces > New:
+
+Name: Guest-informatika
+VLAN ID: 40
+Port Number: 1
+IP: 172.16.10.3
+Netmask: 255.255.255.0
+Gateway: 172.16.10.254
+DHCP: 192.168.1.2
+
+Name: GH-informatika
+VLAN ID: 30
+Port Number: 1
+IP: 172.16.15.4
+Netmask: 255.255.255.192
+Gateway: 172.16.15.3
+DHCP: 192.168.1.2
+
+Name: Tanar-informatika
+VLAN ID: 20
+Port Number: 1
+IP: 172.16.17.131
+Netmask: 255.255.255.224
+Gateway: 172.16.17.158
+DHCP: 192.168.1.2
+
+Name: Diak-informatika
+VLAN ID: 10
+Port Number: 1
+IP: 172.16.0.3
+Netmask: 255.255.254.0
+Gateway: 172.16.1.254
+DHCP: 192.168.1.2
+
+
+Controller > Internal DHCP Server > DHCP Scope:
+day0-dhcp-mgmt törlése
+
+Security > RADIUS > New...
+IP: 192.168.1.2
+Shared Secret: InformatikaWLAN
+Port Number: 1615
+
+
+WLANs > Create New...:
+
+General:
+Profile Name: pte-info-diak
+SSID: pte-info-diak
+Enable check
+Interface: Diak-informatika
+
+Security:
+Layer 2 Security: WPA+WPA2
+WPA2 Policy check
+802.1X check
+AAA Servers:
+Server 1: 192.168.1.2:1615
+
+Advanced:
+FlexConnect Local Switching check
+
+
+General:
+Profile Name: pte-info-tanar
+SSID: pte-info-tanar
+Enable check
+Interface: Tanar-informatika
+
+Security:
+Layer 2 Security: WPA+WPA2
+WPA2 Policy check
+802.1X check
+AAA Servers:
+Server 1: 192.168.1.2:1615
+
+Advanced:
+FlexConnect Local Switching check
+
+
+General:
+Profile Name: pte-info-gh
+SSID: pte-info-gh
+Enable check
+Interface: GH-informatika
+
+Security:
+Layer 2 Security: WPA+WPA2
+WPA2 Policy check
+802.1X check
+AAA Servers:
+Server 1: 192.168.1.2:1615
+
+Advanced:
+FlexConnect Local Switching check
+
+
+General:
+Profile Name: pte-info-vendeg
+SSID: pte-info-vendeg
+Enable check
+Interface: Guest-informatika
+
+Security:
+Layer 2 Security: WPA+WPA2
+WPA2 Policy check
+802.1X check
+AAA Servers:
+Server 1: 192.168.1.2:1615
+
+Advanced:
+FlexConnect Local Switching check
+
+
+WLANs > AP Groups:
+Group Name: Bejarat-AP
+Description: Informatika kar WLAN Bejarat
+SSID-k
+- pte-info-diak
+- pte-info-tanar
+- pte-info-gh
+- pte-info-vendeg
+APs:
+- IFF-BAP check
+
+Group Name: Informatika-AP
+Description: Informatika kar WLAN
+SSID-k
+- pte-info-diak
+- pte-info-tanar
+- pte-info-vendeg
+APs:
+- IFF-IT03AP check
+
+
+
+
+PortFast, BPDUGuard, portbiztonság, DHCP snooping, nem használt portok lekapcsolása:
+
+GFF-GT01SW
+
+ip dhcp snooping
+ip dhcp snooping vlan 10,20,40,99
+ip arp inspection validate dst ip src
+
+int rang fa0/5-24, gig0/2
+sh
+desc Nem hasznalt port
+exit
+
+int rang fa0/1-3
+spanning portfast
+spanning bpduguard ena
+switchport port-sec
+switchport port-sec max 2
+switchport port-sec vio res
+ip dhcp snooping limit rate 5
+exit
+
+int fa0/1
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 0001.6319.89A6
+exit
+
+int fa0/2
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 00D0.5851.7793
+exit
+
+int fa0/3
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 0090.2156.808D
+exit
+
+int fa0/4
+spanning portfast trunk
+ip dhcp snooping limit rate 120
+exit
+
+int gig0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+
+GFF-GT02SW
+
+ip dhcp snooping
+ip dhcp snooping vlan 10,20,40,99
+ip arp inspection validate dst ip src
+
+
+int rang fa0/4-24, gig0/2
+sh
+desc Nem hasznalt port
+exit
+
+int rang fa0/1-3
+spanning portfast
+spanning bpduguard ena
+switchport port-sec
+switchport port-sec max 2
+ip dhcp snooping limit rate 5
+exit
+
+int fa0/1
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 0006.2A4E.EE6B
+exit
+
+int fa0/2
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 0001.9642.9A67
+exit
+
+int fa0/3
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 0090.2BA1.0C32
+exit
+
+int gig0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+
+GFF-GT03SW
+
+ip dhcp snooping
+ip dhcp snooping vlan 10,20,40,99
+ip arp inspection validate dst ip src
+
+
+int rang fa0/5-24, gig0/2
+sh
+desc Nem hasznalt port
+exit
+
+int rang fa0/1-3
+spanning portfast
+spanning bpduguard ena
+switchport port-sec
+switchport port-sec max 2
+ip dhcp snooping limit rate 5
+exit
+
+int fa0/1
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 0003.E44E.769A
+exit
+
+int fa0/2
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 0009.7CD6.1DDB
+exit
+
+int fa0/3
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 00D0.BCB6.2B13
+exit
+
+int fa0/4
+spanning portfast trunk
+ip dhcp snooping limit rate 120
+exit
+
+
+int gig0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+GFF-GT04SW
+
+ip dhcp snooping
+ip dhcp snooping vlan 10,20,40,99
+ip arp inspection validate dst ip src
+
+
+
+int rang fa0/5-24, gig0/2
+sh
+desc Nem hasznalt port
+exit
+
+int rang fa0/1-3
+spanning portfast
+spanning bpduguard ena
+switchport port-sec
+switchport port-sec max 2
+ip dhcp snooping limit rate 5
+exit
+
+int fa0/1
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 000C.85D9.741B
+exit
+
+int fa0/2
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 0002.1761.0C86
+exit
+
+int fa0/3
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 0010.1148.4697
+exit
+
+
+int fa0/4
+spanning portfast trunk
+ip dhcp snooping limit rate 120
+exit
+
+int gig0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+
+
+GFF-ESW
+
+ip dhcp snooping
+ip dhcp snooping vlan 10,20,40,99
+ip arp inspection validate dst ip src
+
+
+int rang fa0/3-24, gig0/2
+sh
+desc Nem hasznalt port
+exit
+
+int rang fa0/1-2
+spanning portfast trunk
+ip dhcp snooping limit rate 240
+exit
+
+int gig0/1
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+
+GFF-MLS-1
+
+ip dhcp snooping
+ip dhcp snooping vlan 10,20,40,99
+ip arp inspection validate dst ip src
+
+int rang gig1/0/9-23, gig1/1/1-4
+sh
+desc Nem hasznalt port
+exit
+
+int gig1/0/2
+spanning portfast
+spanning bpduguard ena
+switchport port-sec
+switchport port-sec max 2
+ip dhcp snooping limit rate 5
+switchport port-sec mac-add sticky
+switchport port-sec mac-add sticky 0001.4284.1248
+exit
+
+int rang gig1/0/4-8
+ip dhcp snooping trust
+exit
+
+
+int gig1/0/24
+spanning portfast trunk
+ip dhcp snooping trust
+exit
+
+int gig1/0/3
+ip dhcp snooping limit rate 120
+exit
+
+int gig1/0/4
+ip dhcp snooping limit rate 135
+exit
+
+int gig1/0/5
+ip dhcp snooping limit rate 15
+exit
+
+int gig1/0/6
+ip dhcp snooping limit rate 135
+exit
+
+int gig1/0/7
+ip dhcp snooping limit rate 135
+exit
+
+int gig1/0/8
+ip dhcp snooping limit rate 240
+exit
+
+PPP:
+
+
+
+
+
+
+
+
+
+
+ASA tűzfal alapkonfiguráció:
+
+start:
+ena
+
+conf t
+clock set 12:00:00 05 jan 2026
+hostname PTE-ASA
+domain-name core.ptuni.hu
+ena password cisco123
+user Admin1 password cisco123
+user Admin2 password cisco123
+crypto key gen rsa modulus 2048
+ssh timeout 5
+
+int gig1/1
+nameif PTE-IN
+ip add 10.1.1.2 255.255.255.252
+desc PTE-RTR fele
+security 0
+no sh
+exit
+
+int gig1/2
+nameif PTE-OUT
+ip add 209.165.1.1 255.255.255.248
+ipv6 add 2001:4860:4801:1::1/64
+desc HBONE-RTR/WAN fele
+security 0
+no sh
+exit
+
+route PTE-OUT 0.0.0.0 0.0.0.0 209.165.1.2 1
+route PTE-IN 172.16.0.0 255.255.0.0 10.1.1.1 1
+router ospf 10
+router 1.1.1.2
+netw 10.1.1.0 255.255.255.252 area 0
+def ori
+exit
+
+
+object network S01
+host 192.168.1.2
+nat (PTE-IN,PTE-OUT) static 209.165.1.3
+object network S02
+host 192.168.1.10
+nat (PTE-IN,PTE-OUT) static 209.165.1.4
+object network PAT
+subnet 0.0.0.0 0.0.0.0
+nat (PTE-IN,PTE-OUT) dynamic interface
+
+
+access-list PLACEHOLDER permit ip any any
+access-group PLACEHOLDER in interface PTE-IN
+
+
+
+
+HBONE-RTR alapkonfiguráció:
+
+ena
+clock set 12:00 05 jan 2026
+conf t
+hostname HBONE-RTR
+no ip domain-l
+ip domain name routing.hbone.hu
+ena sec class123
+banner motd #HBONE Edge Router-re csatlakozott! Illetektelen hozzaferes torvenyellenes!#
+no cdp run
+service password
+line con 0
+password cisco123
+login
+logging sync
+exec-timeout 5
+exit
+line vty 0 15
+password cisco123
+login local
+logging sync
+transport input ssh
+exec-timeout 5
+crypto key gen rsa
+4096
+user HBONEAdmin pri 15 sec class123
+user Telekom secret 5 PPPAuth
+ip ssh ver 2
+
+ip route 94.199.49.93 255.255.255.255 gig0/0/1
+ip route 209.165.1.0 255.255.255.248 209.165.1.1
+
+
+int gig0/0/2
+ip add 209.165.1.2 255.255.255.248
+desc PTE WAN fele
+no sh
+exit
+
+int gig0/0/1
+ip add 94.199.49.94 255.255.255.252
+desc Web fele
+no sh
+exit
+
+int se0/2/0
+clock rate 4000000
+ip add 3.255.255.1 255.255.255.252
+desc TanuloRTR fele
+encapsulation ppp
+no sh
+exit
+
+
+TanuloRTR alapkonfiguráció, DHCP:
+
+ena
+clock set 12:00 05 jan 2026
+conf t
+hostname TanuloRTR
+no ip domain-l
+ip domain name dsl.pool.telekom.hu
+ena sec class123
+banner motd #Telekom CPE-re csatlakozott! Illetektelen hozzaferes torvenyellenes!#
+no cdp run
+service password
+line con 0
+password cisco123
+login
+logging sync
+exec-timeout 5
+exit
+line vty 0 15
+password cisco123
+login
+logging sync
+exec-timeout 5
+user TanuloUser secret 5 PPPAuth
+ip route 0.0.0.0 0.0.0.0 se0/0/0
+
+int gig0/0
+ip add 192.168.0.254 255.255.255.0
+desc Kliens fele
+no sh
+exit
+
+int se0/0/0
+no ip add
+desc Telekom fele
+no sh
+exit
+
+ip dhcp exclude 192.168.0.254
+ip dhcp pool DHCPPOOL
+netw 192.168.0.0 255.255.255.0
+def 192.168.0.254
+dns 8.8.8.8
+domain t.hu
+exit
