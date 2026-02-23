@@ -1,0 +1,2258 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16660\viewh18360\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 distr alapkonfig\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-LSW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+login block-for 120 att 3 wit 60\
+no cdp run\
+\
+ip ftp username IFF-LSW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+ipv6 uni\
+ip routing\
+\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-LSW2\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+login block-for 120 att 3 wit 60\
+no cdp run\
+\
+ip ftp username IFF-LSW2\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+ipv6 uni\
+ip routing\
+\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-RSW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+login block-for 120 att 3 wit 60\
+no cdp run\
+\
+ip ftp username IFF-RSW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+ipv6 uni\
+ip routing\
+\
+\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-RSW2\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+login block-for 120 att 3 wit 60\
+no cdp run\
+\
+ip ftp username IFF-RSW2\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+ipv6 uni\
+ip routing\
+\
+\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-RTR\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #HBone felugyeleti eszkoz#\
+login block-for 120 att 3 wit 60\
+no cdp run\
+\
+ip ftp username IFF-RTR\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+ipv6 uni\
+ip routing\
+\
+\
+-\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-RTR\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #HBone felugyeleti eszkoz#\
+login block-for 120 att 3 wit 60\
+no cdp run\
+\
+ip ftp username MFF-RTR\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+ipv6 uni\
+ip routing\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MLS1\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+login block-for 120 att 3 wit 60\
+no cdp run\
+\
+ip ftp username MFF-MLS1\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+ipv6 uni\
+ip routing\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MLS2\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+login block-for 120 att 3 wit 60\
+no cdp run\
+\
+ip ftp username MFF-MLS2\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+ipv6 uni\
+ip routing\
+\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MLS3\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+login block-for 120 att 3 wit 60\
+no cdp run\
+\
+ip ftp username MFF-MLS3\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+ipv6 uni\
+ip routing\
+\
+\
+\
+\
+\
+ACCESS\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-IT01SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username IFF-IT01SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-IT02SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username IFF-IT02SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-IT03SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username IFF-IT03SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-IT04SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username IFF-IT04SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-IT05SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username IFF-IT05SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname IFF-IT06SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username IFF-IT06SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MT01SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username MFF-MT01SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MT02SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username MFF-MT02SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MT03SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username MFF-MT03SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MT04SW-1\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username MFF-MT04SW-1\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MT04SW-2\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username MFF-MT04SW-2\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MT04SW-3\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username MFF-MT04SW-3\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MT05SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username MFF-MT05SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname MFF-MT06SW\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a switch a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+no cdp run\
+\
+ip ftp username MFF-MT06SW\
+\
+ip ftp password cisco123\
+\
+service password\
+line con 0\
+password cisco123\
+login\
+logging sync\
+exec-timeout 5\
+exit\
+line vty 0 15\
+password cisco123\
+login local\
+logging sync\
+transport input ssh\
+exec-timeout 5\
+crypto key gen rsa\
+4096\
+user Admin1 pri 15 sec class123\
+user Admin2 pri 15 sec class123\
+ip ssh ver 2\
+\
+\'97\'97RENDES CONFIGOK DISTROBAN\'97\'97\
+\
+IFF-LSW\
+\
+vlan 10\
+name Diak\
+vlan 20\
+name Tanar\
+vlan 30\
+name GH\
+vlan 40\
+name Guest\
+vlan 99\
+name MGMTNative\
+\
+int vlan 10\
+ip add 172.16.0.1 255.255.254.0\
+standby 1 ip 172.16.1.254\
+standby 1 prio 255\
+standby 1 preempt \
+int vlan 20\
+ip add 172.16.17.129 255.255.255.224\
+standby 2 ip 172.16.17.158\
+standby 2 prio 255\
+standby 2 preempt \
+int vlan 40\
+ip add 172.16.10.1 255.255.255.0\
+standby 3 ip 172.16.10.254\
+standby 3 prio 255\
+standby 3 preempt \
+int vlan 99\
+ip add 172.16.16.65 255.255.255.192\
+standby 4 ip 172.16.16.126\
+standby 4 prio 255\
+standby 4 preempt \
+\
+int g1/0/24\
+desc IFF-RTR fele\
+no switchp\
+ip ad 10.0.0.5 255.255.255.252\
+no sh\
+\
+int ran g1/0/3-4\
+no switchp\
+channel-g 1 mod desi\
+\
+int port-channel 1\
+desc aggregacio IFF-LSW2 fele\
+ip add 10.0.0.9 255.255.255.252\
+no sh\
+\
+int ran g1/0/1-2\
+no switchp\
+channel-g 2 mod act\
+\
+int port-channel 2\
+desc aggregacio IFF-RSW1 fele\
+ip add 10.10.10.13 255.255.255.252\
+\
+int ran g1/0/5-9\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+\
+\
+\
+IFF-RSW1\
+vlan 10\
+name Diak\
+vlan 20\
+name Tanar\
+vlan 30\
+name GH\
+vlan 40\
+name Guest\
+vlan 99\
+name MGMTNative\
+\
+int vlan 10\
+ip add 172.16.0.2 255.255.254.0\
+standby 1 ip 172.16.1.254\
+int vlan 20\
+ip add 172.16.17.130 255.255.255.224\
+standby 2 ip 172.16.17.158\
+int vlan 40\
+ip add 172.16.10.2 255.255.255.0\
+standby 3 ip 172.16.10.254\
+int vlan 99\
+ip add 172.16.16.66 255.255.255.192\
+standby 4 ip 172.16.16.126\
+\
+\
+int ran g1/0/3-4\
+no switchp\
+channel-g 3 mod desi\
+\
+int port-channel 3\
+desc aggregacio IFF-RSW2 fele\
+ip add 10.0.0.21 255.255.255.252\
+no sh\
+\
+int ran g1/0/1-2\
+no switchp\
+channel-g 2 mod pass\
+\
+int port-channel 2\
+desc aggregacio IFF-LSW1 fele\
+ip add 10.0.0.14 255.255.255.252\
+no sh\
+\
+\
+int ran g1/0/5-7\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+\
+\
+IFF-LSW2\
+\
+vlan 10\
+name Diak\
+vlan 20\
+name Tanar\
+vlan 30\
+name GH\
+vlan 40\
+name Guest\
+vlan 99\
+name MGMTNative\
+\
+int vlan 10\
+ip add 172.16.2.1 255.255.254.0\
+standby 5 ip 172.16.3.254\
+standby 5 prio 255\
+standby 5 preempt \
+int vlan 20\
+ip add 172.16.17.161 255.255.255.224\
+standby 6 ip 172.16.17.190\
+standby 6 prio 255\
+standby 6 preempt \
+int vlan 40\
+ip add 172.16.11.1 255.255.255.0\
+standby 7 ip 172.16.11.254\
+standby 7 prio 255\
+standby 7 preempt \
+int vlan 99\
+ip add 172.16.16.129 255.255.255.192\
+standby 8 ip 172.16.16.190\
+standby 8 prio 255\
+standby 8 preempt \
+int vlan 30\
+ip add 172.16.15.1 255.255.255.192\
+standby 9 ip 172.16.15.62\
+standby 9 prio 255\
+standby 9 preempt\
+\
+int ran g1/0/3-4\
+no switchp\
+channel-g 1 mod auto\
+\
+int port-channel 1 \
+desc IFF-LSW1 fele\
+ip add 10.0.0.10 255.255.255.252\
+no sh\
+\
+int ran g1/0/1-2\
+no switchp\
+channel-g 4 mod act\
+\
+int port-channel 4\
+desc IFF-RSW2 fele\
+ip add 10.0.0.17 255.255.255.252\
+no sh\
+\
+int ran g1/0/5-7\
+switchp mod trunk\
+switchp trunk all vlan 20,30,99\
+switchp trunk nativ vlan 99\
+\
+\
+IFF-RSW2\
+\
+vlan 10\
+name Diak\
+vlan 20\
+name Tanar\
+vlan 30\
+name GH\
+vlan 40\
+name Guest\
+vlan 99\
+name MGMTNative\
+\
+int vlan 10\
+ip add 172.16.2.2 255.255.254.0\
+standby 5 ip 172.16.3.254\
+\
+int vlan 20\
+ip add 172.16.17.162 255.255.255.224\
+standby 6 ip 172.16.17.190\
+int vlan 40\
+ip add 172.16.11.2 255.255.255.0\
+standby 7 ip 172.16.11.254\
+int vlan 99\
+ip add 172.16.16.130 255.255.255.192\
+standby 8 ip 172.16.16.190\
+\
+int vlan 30\
+ip add 172.16.15.2 255.255.255.192\
+standby 9 ip 172.16.15.62\
+\
+\
+int ran g1/0/3-4\
+no switchp\
+channel-g 3 mod auto\
+\
+int port-channel 3\
+desc IFF-RSW1 fele\
+ip add 10.0.0.22 255.255.255.252\
+no sh\
+\
+int ran g1/0/1-2\
+no switchp\
+channel-g 4 mod pass\
+\
+int port-channel 4\
+desc IFF-LSW1 fele\
+ip add 10.0.0.18 255.255.255.252\
+no sh\
+\
+int ran g1/0/5-7\
+switchp mod trunk\
+switchp trunk all vlan 20,30,99\
+switchp trunk nativ vlan 99\
+\
+\
+\
+IFF-RTR\
+\
+int g0/0/0\
+desc IFF-LSW1 fele\
+ip add 10.0.0.6 255.255.255.252\
+no sh\
+int g0/0/1\
+desc PTE-RTR fele\
+ip add 10.0.0.2 255.255.255.252\
+no sh\
+\
+\
+MFF-RTR\
+\
+int g0/0/1\
+ip add 10.0.0.26 255.255.255.252\
+ipv6 add 2002:cafe:efac:2::2/64\
+desc PTE-RTR fele\
+int g0/0/0\
+ip add 10.0.0.29 255.255.255.252\
+ipv6 add 2002:cafe:efac:3::1/64\
+desc MFF-MLS1 fele\
+\
+\
+MFF-MLS1\
+\
+\
+\
+\
+vlan 10\
+name Diak\
+vlan 20\
+name Tanar\
+vlan 30\
+name GH\
+vlan 40\
+name Guest\
+vlan 99\
+name MGMTNative\
+\
+int g1/0/1\
+no switchp\
+ip add 10.0.0.30 255.255.255.252\
+ipv6 add 2002:cafe:efac:3::2/64\
+desc MFF-RTR fele\
+int g1/0/24\
+no switchp\
+ip add 10.0.0.33 255.255.255.252\
+ipv6 add 2002:cafe:efac:4::1/64\
+desc MFF-MLS2 FELE\
+\
+\
+\
+\
+MFF-MLS2\
+\
+\
+\
+\
+vlan 10\
+name Diak\
+vlan 20\
+name Tanar\
+vlan 30\
+name GH\
+vlan 40\
+name Guest\
+vlan 99\
+name MGMTNative\
+\
+int vlan 10\
+ipv6 add 2002:db8:cafe:1::1/64\
+ipv6 add fe80::1 link\
+ip add 172.16.4.1 255.255.254.0\
+int vlan 20\
+ipv6 add 2002:db8:cafe:2::1/64\
+ipv6 add fe80::1 link\
+ip add 172.16.17.193 255.255.255.224\
+int vlan 40\
+ipv6 add 2002:db8:cafe:3::1/64\
+ipv6 add fe80::1 link\
+ip add 172.16.12.1 255.255.255.0\
+int vlan 99\
+ipv6 add 2002:db8:cafe:5::1/64\
+ipv6 add fe80::1 link\
+ip add 172.16.16.193 255.255.255.192\
+\
+int g1/0/24\
+NO SWITCHP\
+desc MFF-MLS1 fele\
+ip add 10.0.0.34 255.255.255.252\
+ipv6 add 2002:cafe:efac:4::2/64\
+\
+int g1/0/23\
+no switchp\
+desc MFF-MLS3 fele\
+ip add 10.0.0.37 255.255.255.252\
+ipv6 add 2002:cafe:efac:5:.1/64\
+\
+int ran g1/0/1,g1/0/3-5,g1/0/23\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+\
+MFF-MLS3\
+\
+vlan 10\
+name Diak\
+vlan 20\
+name Tanar\
+vlan 30\
+name GH\
+vlan 40\
+name Guest\
+vlan 99\
+name MGMTNative\
+\
+int vlan 10\
+ipv6 add 2002:db8:cafe:6::1/64\
+ipv6 add fe80::1 link\
+ip add 172.16.6.1 255.255.254.0\
+int vlan 20\
+ipv6 add 2002:db8:cafe:7::1/64\
+ipv6 add fe80::1 link\
+ip add 172.16.17.225 255.255.255.224\
+int vlan 40\
+ipv6 add 2002:db8:cafe:8::1/64\
+ipv6 add fe80::1 link\
+ip add 172.16.13.1 255.255.255.0\
+int vlan 99\
+ipv6 add 2002:db8:cafe:10::1/64\
+ipv6 add fe80::1 link\
+ip add 172.16.17.1 255.255.255.192\
+\
+int g1/0/24\
+NO SWITCHP\
+desc MFF-MLS2 fele\
+ip add 10.0.0.38 255.255.255.252\
+ipv6 add 2002:cafe:efac:5::2/64\
+\
+int ran g1/0/1-3\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+\
+\
+\
+IFF-LSW1-2\
+VTP ver 2\
+vtp domain vtp.hu\
+vtp pass cisco123\
+\
+IFF-GH04-6SW\
+int ran g0/1-2\
+switchp mod trunk\
+switchp trunk all vlan 20,30,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int ran fa0/1-2\
+switchp mod acc\
+switchp acc vlan 30\
+\
+\
+IFF-IT01SW\
+\
+int ran g0/1-2\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int ran fa0/2-4\
+switchp mod acc\
+switchp acc vlan 20\
+\
+int fa0/1\
+switchp mod acc\
+switchp acc vlan 10\
+\
+\
+IFF-IT02SW\
+\
+int ran g0/1-2\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int fa0/2\
+switchp mod acc\
+switchp acc vlan 20\
+\
+int fa0/1\
+switchp mod acc\
+switchp acc vlan 10\
+\
+\
+IFF-IT03SW\
+\
+int ran g0/1-2\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int fa0/1\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+\
+\
+MFF-MLS2-3\
+VTP ver 2\
+vtp domain vtp.hu\
+vtp pass cisco123\
+\
+MFF-MT01SW\
+int g0/1\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int fa0/1\
+switchp mod acc\
+switchp acc vlan 10\
+int fa0/2\
+switchp mod acc\
+switchp acc vlan 20\
+\
+\
+MFF-MT02SW\
+int fa0/3\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int fa0/1\
+switchp mod acc\
+switchp acc vlan 10\
+int fa0/2\
+switchp mod acc\
+switchp acc vlan 20\
+\
+MFF-MT03SW\
+int g0/1\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int fa0/1\
+switchp mod acc\
+switchp acc vlan 10\
+int fa0/2\
+switchp mod acc\
+switchp acc vlan 20\
+\
+MFF-MT05SW\
+int g0/1\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int fa0/1\
+switchp mod acc\
+switchp acc vlan 10\
+int fa0/2\
+switchp mod acc\
+switchp acc vlan 20\
+\
+\
+MFF-MT06SW\
+int g0/1\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int fa0/1\
+switchp mod acc\
+switchp acc vlan 10\
+int fa0/2\
+switchp mod acc\
+switchp acc vlan 20\
+\
+\
+MFF-MT04-01SW\
+int ran g0/1,fa0/1-2,fa0/5\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int fa0/3\
+switchp mod acc\
+switchp acc vlan 10\
+int fa0/4\
+switchp mod acc\
+switchp acc vlan 20\
+\
+\
+MFF-MT04-02SW\
+\
+int ran fa0/1-2\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int fa0/3\
+switchp mod acc\
+switchp acc vlan 10\
+int fa0/4\
+switchp mod acc\
+switchp acc vlan 20\
+\
+MFF-MT04-03SW\
+\
+int ran fa0/1-2\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+vtp ver 2\
+vtp mod client\
+vtp domain vtp.hu\
+vtp pass cisco123\
+int fa0/3\
+switchp mod acc\
+switchp acc vlan 10\
+int fa0/4\
+switchp mod acc\
+switchp acc vlan 20\
+\
+\
+IFF-RTR\
+\
+router ospf 10\
+rou 2.2.2.2\
+net 10.0.0.0 0.0.0.3 area 0\
+net 10.0.0.4 0.0.0.3 area 0\
+\
+\
+\
+IFF-LSW1\
+\
+\
+\
+router ospf 20\
+rou 3.3.3.3\
+pass g1/0/7\
+pass g1/0/8\
+pass g1/0/9\
+pass g1/0/5\
+pass g1/0/6\
+\
+net 10.0.0.4 0.0.0.3 area 0\
+net 10.0.0.8 0.0.0.3 area 0\
+net 10.0.0.12 0.0.0.3 area 0\
+net 172.16.0.0 0.0.1.255 area 20\
+net 172.16.17.128 0.0.0.31 area 20\
+net 172.16.10.0 0.0.0.255 area 20\
+net 172.16.16.64 0.0.0.63 area 20\
+\
+\
+\
+IFF-RSW1\
+\
+\
+router ospf 10\
+rou 5.5.5.5\
+pass g1/0/7\
+pass g1/0/5\
+pass g1/0/6\
+net 10.0.0.12 0.0.0.3 area 0\
+net 10.0.0.20 0.0.0.3 area 0\
+net 172.16.0.0 0.0.1.255 area 20\
+net 172.16.17.128 0.0.0.31 area 20\
+net 172.16.10.0 0.0.0.255 area 20\
+net 172.16.16.64 0.0.0.63 area 20\
+\
+\
+\
+IFF-LSW2\
+\
+\
+router ospf 10\
+rou 4.4.4.4\
+pass g1/0/7\
+pass g1/0/5\
+pass g1/0/6\
+net 10.0.0.8 0.0.0.3 area 0\
+net 10.0.0.16 0.0.0.3 area 0\
+net 172.16.2.0 0.0.1.255 area 10\
+net 172.16.17.160 0.0.0.31 area 10\
+net 172.16.11.0 0.0.0.255 area 10\
+net 172.16.16.128 0.0.0.63 area 10\
+net 172.16.15.0 0.0.0.63 area 10\
+\
+\
+IFF-RSW2\
+\
+\
+router ospf 10\
+rou 6.6.6.6\
+pass g1/0/7\
+pass g1/0/5\
+pass g1/0/6\
+net 10.0.0.20 0.0.0.3 area 0\
+net 10.0.0.16 0.0.0.3 area 0\
+net 172.16.2.0 0.0.1.255 area 10\
+net 172.16.17.160 0.0.0.31 area 10\
+net 172.16.11.0 0.0.0.255 area 10\
+net 172.16.16.128 0.0.0.63 area 10\
+net 172.16.15.0 0.0.0.63 area 10\
+\
+\
+\
+\
+MFF-RTR\
+\
+router ospf 10\
+rou 7.7.7.7\
+net 10.0.0.24 0.0.0.3 area 0\
+net 10.0.0.28 0.0.0.3 area 0\
+\
+\
+\
+\
+\
+MFF-MLS1\
+\
+\
+router ospf 10\
+ro 8.8.8.8\
+net 10.0.0.28 0.0.0.3 area 0\
+net 10.0.0.32 0.0.0.3 area 20\
+\
+\
+\
+\
+\
+MFF-MLS2\
+router ospf 10\
+ro 9.9.9.9\
+net 10.0.0.32 0.0.0.3 area 20\
+net 10.0.0.36 0.0.0.3 area 20\
+net 172.16.4.0 0.0.1.255 area 20\
+net 172.16.17.192 0.0.0.31 area 20\
+net 172.16.12.0 0.0.0.255 area 20\
+net 172.16.16.192 0.0.0.63 area 20\
+\
+MFF-MLS3				\
+router ospf 10\
+ro 10.10.10.10\
+net 10.0.0.36 0.0.0.3 area 20\
+net 172.16.6.0 0.0.1.255 area 20\
+net 172.16.17.224 0.0.0.31 area 20\
+net 172.16.13.0 0.0.0.255 area 20\
+net 172.16.17.0 0.0.0.63 area 20\
+\
+minden mls minden svi-be:\
+int vlan 10\
+ip help 10.1.1.10\
+int vlan 20\
+ip help 10.1.1.10\
+int vlan 40\
+ip help 10.1.1.10\
+int vlan 99\
+ip help 10.1.1.10\
+\
+\
+access switchek:\
+spanning-tree portf def\
+spanning-tree portf bpdug def\
+int ran fa0/1-2\
+switchp mod acc\
+switchp port-sec\
+switchp port-sec max 2\
+switchp port-sec vio sh\
+switchp port-sec mac stick
+\f1 \expnd0\expndtw0\kerning0
+\
+
+\f0 \kerning1\expnd0\expndtw0 \
+mernoki kar spanning-tree\
+mt04sw-1\
+spanning-t mod rap\
+spanning-t vlan 10,20,40,99 root prim\
+spanning-tree portf def\
+spanning-tree portf bpdug def\
+int ran fa0/3-4\
+switchp mod acc\
+switchp port-sec\
+switchp port-sec max 2\
+switchp port-sec vio sh\
+switchp port-sec mac stick
+\f1 \expnd0\expndtw0\kerning0
+\
+
+\f0 \kerning1\expnd0\expndtw0 mt04sw-2\
+spanning-t mod rap\
+spanning-t vlan 10,20,40,99 root sec\
+spanning-tree portf def\
+spanning-tree portf bpdug def\
+int ran fa0/3-4\
+switchp mod acc\
+switchp port-sec\
+switchp port-sec max 2\
+switchp port-sec vio sh\
+switchp port-sec mac stick\
+mt04sw-3\
+spanning-t mod rap\
+spanning-t vlan 10,20,40,99\
+spanning-tree portf def\
+spanning-tree portf bpdug def\
+int ran fa0/3-4\
+switchp mod acc\
+switchp port-sec\
+switchp port-sec max 2\
+switchp port-sec vio sh\
+switchp port-sec mac stick\
+\
+dhcp snoop es arp insp\
+info\
+ip dhcp snoop\
+ip arp insp\
+\
+int ran g0/1-2\
+ip dhcp snoop trust\
+ip arp insp trust\
+\
+mernok\
+\
+ip dhcp snoop\
+ip arp insp\
+\
+int ran g0/1\
+ip dhcp snoop trust\
+ip arp insp trust\
+\
+mt04sw-1\
+ip dhcp snoop\
+ip arp insp\
+\
+int ran g0/1,fa0/1-2\
+ip dhcp snoop trust\
+ip arp insp trust\
+\
+mt04sw-2\
+ip dhcp snoop\
+ip arp insp\
+\
+int ran fa0/1-2\
+ip dhcp snoop trust\
+ip arp insp trust\
+\
+\
+management ipk\
+GH04SW\
+int vlan 99\
+ip add 172.16.16.130 255.255.255.192\
+ex\
+ip def 172.16.16.191\
+\
+GH05SW\
+int vlan 99\
+ip add 172.16.16.131 255.255.255.192\
+ex\
+ip def 172.16.16.191\
+GH06SW\
+int vlan 99\
+ip add 172.16.16.132 255.255.255.192\
+ex\
+ip def 172.16.16.191\
+\
+IT01SW\
+int vlan 99\
+ip add 172.16.16.66 255.255.255.192\
+ex\
+ip def 172.16.16.126\
+\
+\
+IT02SW\
+int vlan 99\
+ip add 172.16.16.67 255.255.255.192\
+ex\
+ip def 172.16.16.126\
+IT03SW\
+int vlan 99\
+ip add 172.16.16.68 255.255.255.192\
+ex\
+ip def 172.16.16.126\
+\
+mernok\
+\
+MT01SW\
+\
+int vlan 99\
+ip add 172.16.17.2 255.255.255.192\
+ex\
+ip def 172.16.17.1\
+\
+\
+MT02SW\
+int vlan 99\
+ip add 172.16.17.3 255.255.255.192\
+ex\
+ip def 172.16.17.1\
+\
+\
+MT03SW\
+int vlan 99\
+ip add 172.16.17.4 255.255.255.192\
+ex\
+ip def 172.16.17.1\
+\
+\
+MT04SW-1\
+int vlan 99\
+ip add 172.16.16.194 255.255.255.192\
+ex\
+ip def 172.16.16.193\
+\
+MT04SW-2\
+int vlan 99\
+ip add 172.16.16.195 255.255.255.192\
+ex\
+ip def 172.16.16.193\
+\
+\
+MT04SW-3\
+int vlan 99\
+ip add 172.16.16.196 255.255.255.192\
+ex\
+ip def 172.16.16.193\
+\
+MT05SW\
+int vlan 99\
+ip add 172.16.16.197 255.255.255.192\
+ex\
+ip def 172.16.16.193\
+MT06SW\
+int vlan 99\
+ip add 172.16.16.198 255.255.255.192\
+ex\
+ip def 172.16.16.193\
+\
+\
+\
+eigrpv6\
+\
+MFF-RTR\
+ipv6 route ::/0 2002:cafe:efac:2::1\
+ipv6 router eigrp 10\
+pass g0/0/1\
+eigrp rou 15.15.15.15\
+red stat\
+no sh\
+int g0/0/0\
+ipv6 eigrp 10\
+\
+\
+MFF-MLS1\
+\
+i\
+ipv6 router eigrp 10\
+eigrp rou 15.15.15.16\
+no sh\
+int g1/0/1\
+ipv6 eigrp 10\
+int g1/0/24\
+ipv6 eigrp 10\
+\
+\
+MFF-MLS2\
+\
+\
+ipv6 router eigrp 10\
+eigrp rou 15.15.15.17\
+pass g1/0/1\
+pass g1/0/2\
+pass g1/0/3\
+pass g1/0/4\
+pass g1/0/5\
+no sh\
+int g1/0/23\
+ipv6 eigrp 10\
+int g1/0/24\
+ipv6 eigrp 10\
+\
+\
+MFF-MLS3\
+ipv6 router eigrp 10\
+eigrp rou 15.15.15.18\
+pass g1/0/1\
+pass g1/0/2\
+pass g1/0/3\
+\
+no sh\
+\
+int g1/0/24\
+ipv6 eigrp 10\
+\
+\
+MFF-MT02SW\
+\
+int g0/1\
+switchp mod trunk\
+switchp trunk all vlan 10,20,40,99\
+switchp trunk nativ vlan 99\
+\
+IFF-IT01SW\
+switchp mod acc\
+switchp port-sec\
+switchp port-sec max 2\
+switchp port-sec vio sh\
+switchp port-sec mac stick\
+switchp acc vlan 10\
+\
+\
+\
+floating static ghba\
+IFF-RTR\
+ip route 172.16.15.0 255.255.255.192 10.0.0.5 120\
+ip route 172.16.16.128 255.255.255.192 10.0.0.5 120\
+IFF-LSW1\
+ip route 172.16.15.0 255.255.255.192 10.0.0.10 120\
+ip route 172.16.15.0 255.255.255.192 10.0.0.14 130\
+ip route 172.16.16.128 255.255.255.192 10.0.0.10 120\
+ip route 172.16.16.128 255.255.255.192 10.0.0.14 130\
+IFF-RSW1\
+ip route 172.16.15.0 255.255.255.192 10.0.0.22 120\
+ip route 172.16.16.128 255.255.255.192 10.0.0.22 120
+\f1 \expnd0\expndtw0\kerning0
+\
+
+\f0 \kerning1\expnd0\expndtw0 \
+\
+IT01SW\
+int vlan 99\
+ip add 172.16.16.67 255.255.255.192\
+\
+IT02SW\
+int vlan 99\
+ip add 172.16.16.68 255.255.255.192\
+\
+IT03SW\
+int vlan 99\
+ip add 172.16.16.69 255.255.255.192\
+overlap fix\
+\
+IFF-LSW1\
+def int int gig1/0/6\
+int gig1/0/6\
+switchport mode access\
+switchport access vlan 20\
+desc IFF-B-1 fele\
+trunk helyett vlan 20\
+\
+MFF-MLS-2:\
+int [int]\
+switchport mode trunk\
+switchport trunk all vlan 10,20,40,99\
+switchport trunk nat vlan 99\
+switchport nonego\
+desc [WLC display nev] fele\
+\
+IFF-LSW-1/2:\
+int [int]\
+switchport mode trunk\
+switchport trunk all vlan 10,20,30,40,99\
+switchport trunk nat vlan 99\
+switchport nonego\
+desc [WLC display nev] fele\
+\
+MFF-MLS-2: Gig1/0/22\
+IFF-LSW-1: Gig1/0/23\
+IFF-LSW-2: Gig1/0/24 \
+\
+\
+ip access-l stand vty\
+permit host 172.16.17.81\
+permit host 172.16.16.80\
+permit host 172.16.16.208\
+\
+line vty 0 15\
+access-c vty in\
+\
+EDGE router\
+ena\
+clock set 12:00 05 jan 2026\
+conf t\
+hostname Edge\
+\
+no ip domain-l\
+ip domain name info.ptuni.hu\
+ena sec class123\
+banner motd #Ez a router a Puskas Tivadar Egyetem tulajdona. Illetektelen hozzaferes torvenyellenes!#\
+login block-for 120 att 3 wit 60\
+no cdp run\
+\
+int g0/0/0\
+ip add 10.1.1.2 255.255.255.252\
+ip nat in\
+no sh\
+int g0/0/1\
+ip nat out\
+ip add 209.165.1.1 255.255.255.248\
+no sh\
+ex\
+router ospf 10\
+rou 5.5.5.4\
+net 10.1.1.0 0.0.0.3 area 0\
+pass g0/0/1\
+ex\
+ip route 0.0.0.0 0.0.0.0 209.165.1.2\
+ip nat inside source static 192.168.1.2 209.165.1.3\
+ip nat inside source static 192.168.1.10 209.165.1.4\
+ip nat pool NATPOOL 209.165.1.5 209.165.1.6\
+ip acc stan LANPOOL\
+permit 172.16.0.0 0.0.255.255\
+ex\
+ip nat inside source list LANPOOL pool NATPOOL over\
+\
+\
+INFO KAR L-RSW-1,\
+ip acc ext DIAKHARDENING\
+remark csak tanar es management es szerver fele mehet kommunikacio, icmp echo tilt\
+permit ip any host 192.168.1.2\
+permit ip any host 192.168.1.10\
+deny icmp any any echo\
+deny ip any 172.16.15.0 0.0.0.63\
+deny ip any 172.16.10.0 0.0.0.255\
+deny ip any 172.16.11.0 0.0.0.255\
+deny ip any 172.16.4.0 0.0.1.255\
+deny ip any 172.16.17.192 0.0.0.31\
+deny ip any 172.16.12.0 0.0.0.255\
+deny ip any 172.16.8.0 0.0.1.255\
+deny ip any 172.16.18.0 0.0.0.31\
+deny ip any 172.16.14.0 0.0.0.255\
+permit ip any any\
+int ran g1/0/5,g1/0/7-9\
+ip access-g DIAKHARDENING in\
+\
+ip acc ext DIAKHARDENING\
+remark csak tanar es management es szerver fele mehet kommunikacio, icmp echo tilt\
+permit ip any host 192.168.1.2\
+permit ip any host 192.168.1.10\
+deny icmp any any echo\
+deny ip any 172.16.15.0 0.0.0.63\
+deny ip any 172.16.10.0 0.0.0.255\
+deny ip any 172.16.11.0 0.0.0.255\
+deny ip any 172.16.4.0 0.0.1.255\
+deny ip any 172.16.17.192 0.0.0.31\
+deny ip any 172.16.12.0 0.0.0.255\
+deny ip any 172.16.8.0 0.0.1.255\
+deny ip any 172.16.18.0 0.0.0.31\
+deny ip any 172.16.14.0 0.0.0.255\
+permit ip any any\
+int vlan 10\
+ip access-g DIAKHARDENING in\
+\
+IFF-L-RSW-2\
+\
+ip acc ext GHHARDENING\
+remark csak szerver es net fele, minden mas tilt\
+permit ip any host 192.168.1.2\
+permit ip any host 192.168.1.10\
+deny icmp any any echo\
+deny ip any 172.16.0.1 0.0.1.255\
+deny ip any 172.16.2.0 0.0.1.255\
+deny ip any 172.16.4.0 0.0.1.255\
+deny ip any 172.16.6.0 0.0.1.255\
+deny ip any 172.16.17.128 0.0.0.31\
+deny ip any 172.16.17.160 0.0.0.31\
+deny ip any 172.16.17.192 0.0.0.31\
+deny ip any 172.16.17.224 0.0.0.31\
+deny ip any 172.16.10.0 0.0.0.255\
+deny ip any 172.16.11.0 0.0.0.255\
+deny ip any 172.16.12.0 0.0.0.255\
+deny ip any 172.16.13.0 0.0.0.255\
+deny ip any 172.16.14.0 0.0.0.255\
+permit ip any any\
+int vlan 30\
+ip access-g GHHARDENING in\
+\
+diakhardening muszaki karon\
+\
+MFF-MLS2\
+ip acc ext DIAKHARDENING\
+remark csak tanar es management es szerver fele mehet kommunikacio, icmp echo tilt\
+permit ip any host 192.168.1.2\
+permit ip any  host 192.168.1.10\
+deny icmp any any echo\
+deny ip any 172.16.16.0 0.0.1.255\
+deny ip any 172.16.17.128 0.0.0.31\
+deny ip any 172.16.10.0 0.0.0.255\
+deny ip any 172.16.2.0 0.0.1.255\
+deny ip any 172.16.17.160 0.0.0.31\
+deny ip any 172.16.15.0 0.0.0.63\
+deny ip any 172.16.12.0 0.0.0.255\
+deny ip any 172.16.6.0 0.0.1.255\
+deny ip any 172.16.17.224 0.0.0.31\
+deny ip any 172.16.13.0 0.0.0.255\
+deny ip any 172.16.8.0 0.0.1.255\
+deny ip any 172.16.18.0 0.0.0.31\
+deny ip any 172.16.14.0 0.0.0.255\
+permit ip any any \
+int vlan 10\
+ip access-g DIAKHARDENING in\
+\
+\
+\
+MFF-MLS3\
+ip acc ext DIAKHARDENING\
+remark csak tanar es management es szerver fele mehet kommunikacio, icmp echo tilt\
+permit ip any host 192.168.1.2\
+permit ip any  host 192.168.1.10\
+deny icmp any any echo\
+deny ip any 172.16.16.0 0.0.1.255\
+deny ip any 172.16.17.128 0.0.0.31\
+deny ip any 172.16.10.0 0.0.0.255\
+deny ip any 172.16.2.0 0.0.1.255\
+deny ip any 172.16.17.160 0.0.0.31\
+deny ip any 172.16.15.0 0.0.0.63\
+deny ip any 172.16.12.0 0.0.0.255\
+deny ip any 172.16.4.0 0.0.1.255\
+deny ip any 172.16.17.224 0.0.0.31\
+deny ip any 172.16.13.0 0.0.0.255\
+deny ip any 172.16.8.0 0.0.1.255\
+deny ip any 172.16.18.0 0.0.0.31\
+deny ip any 172.16.14.0 0.0.0.255\
+permit ip any any \
+int vlan 10\
+ip access-g DIAKHARDENING in\
+\
+\
+GFF-MLS\
+ip acc ext DIAKHARDENING\
+remark csak tanar es management es szerver fele mehet kommunikacio, icmp echo tilt\
+permit ip any host 192.168.1.2\
+permit ip any host 192.168.1.10\
+deny icmp any any echo\
+deny ip any 172.16.16.0 0.0.1.255\
+deny ip any 172.16.17.128 0.0.0.31\
+deny ip any 172.16.10.0 0.0.0.255\
+deny ip any 172.16.2.0 0.0.1.255\
+deny ip any 172.16.17.160 0.0.0.31\
+deny ip any 172.16.15.0 0.0.0.63\
+deny ip any 172.16.12.0 0.0.0.255\
+deny ip any 172.16.4.0 0.0.1.255\
+deny ip any 172.16.6.0 0.0.1.255\
+deny ip any 172.16.17.224 0.0.0.31\
+deny ip any 172.16.13.0 0.0.0.255\
+deny ip any 172.16.18.0 0.0.0.31\
+deny ip any 172.16.14.0 0.0.0.255\
+permit ip any any \
+int vlan 10\
+ip access-g DIAKHARDENING in\
+\
+IFF-L-RSW1 GUESTHARDENING\
+ip acc ext GUESTHARDENING\
+remark csak szerver, management es net, szervert se pingelhet\
+deny icmp any any echo\
+permit ip any host 192.168.1.2\
+permit ip any host 192.168.1.10\
+deny ip any 172.16.0.0 0.0.1.255\
+deny ip any 172.16.17.128 0.0.0.31\
+deny ip any 172.16.2.0 0.0.1.255\
+deny ip any 172.16.17.160 0.0.0.31\
+deny ip any 172.16.15.0 0.0.0.63\
+deny ip any 172.16.11.0 0.0.0.255\
+deny ip any 172.16.4.0 0.0.1.255\
+deny ip any 172.16.17.192 0.0.0.31\
+deny ip any 172.16.12.0 0.0.0.255\
+deny ip any 172.16.6.0 0.0.1.255\
+deny ip any 172.16.17.224 0.0.0.31\
+deny ip any 172.16.13.0 0.0.0.255\
+deny ip any 172.16.8.0 0.0.1.255\
+deny ip any 172.16.18.0 0.0.0.31\
+deny ip any 172.16.14.0 0.0.0.255\
+permit ip any any\
+ex\
+int vlan 40\
+ip access-g GUESTHARDENING in\
+\
+\
+MFF-MLS2\
+ip acc ext GUESTHARDENING\
+remark csak szerver, management es net, szervert se pingelhet\
+deny icmp any any echo\
+permit ip any host 192.168.1.2\
+permit ip any host 192.168.1.10\
+deny ip any 172.16.0.0 0.0.1.255\
+deny ip any 172.16.17.128 0.0.0.31\
+deny ip any 172.16.2.0 0.0.1.255\
+deny ip any 172.16.17.160 0.0.0.31\
+deny ip any 172.16.15.0 0.0.0.63\
+deny ip any 172.16.11.0 0.0.0.255\
+deny ip any 172.16.4.0 0.0.1.255\
+deny ip any 172.16.17.192 0.0.0.31\
+deny ip any 172.16.6.0 0.0.1.255\
+deny ip any 172.16.17.224 0.0.0.31\
+deny ip any 172.16.13.0 0.0.0.255\
+deny ip any 172.16.8.0 0.0.1.255\
+deny ip any 172.16.18.0 0.0.0.31\
+deny ip any 172.16.14.0 0.0.0.255\
+permit ip any any\
+ex\
+int vlan 40\
+ip access-g GUESTHARDENING in\
+\
+GFF-MLS\
+ip acc ext GUESTHARDENING\
+remark csak szerver, management es net, szervert se pingelhet\
+deny icmp any any echo\
+permit ip any host 192.168.1.2\
+permit ip any host 192.168.1.10\
+deny ip any 172.16.0.0 0.0.1.255\
+deny ip any 172.16.17.128 0.0.0.31\
+deny ip any 172.16.2.0 0.0.1.255\
+deny ip any 172.16.17.160 0.0.0.31\
+deny ip any 172.16.15.0 0.0.0.63\
+deny ip any 172.16.11.0 0.0.0.255\
+deny ip any 172.16.4.0 0.0.1.255\
+deny ip any 172.16.17.192 0.0.0.31\
+deny ip any 172.16.6.0 0.0.1.255\
+deny ip any 172.16.17.224 0.0.0.31\
+deny ip any 172.16.13.0 0.0.0.255\
+deny ip any 172.16.8.0 0.0.1.255\
+deny ip any 172.16.18.0 0.0.0.31\
+permit ip any any\
+ex\
+int vlan 40\
+ip access-g GUESTHARDENING in\
+\
+\
+\
+\{\
+\
+VPN\
+\
+aaa new-model\
+aaa authen login belep local\
+aaa authori net jogosultsag local\
+username diakdiak password diakdiak\
+\
+\
+crypto isakmp pol 10\
+encr aes\
+hash md5\
+auth pre\
+group 2\
+ex\
+ip local pool VPNP 10.20.30.1 10.20.30.200\
+\
+crypto isakmp cli conf gr diakvpn\
+key diakdiak\
+pool VPNP\
+ex\
+crypto ipsec trans tset esp-aes esp-md5-hmac\
+crypto dyna vpnmap 10\
+set trans tset\
+reverse-r\
+ex\
+crypto map vpnmap client conf add res\
+crypto map vpnmap cli auth list belep\
+crypto map vpnmap isak auth list jogosultsag\
+crypto map vpnmap 10 ipsec-isakmp dynam vpnmap\
+\
+int g0/0/1\
+crypto map vpnmap\
+\} \'97 ez a r\'e9sz a packet tracer limit\'e1ci\'f3i miatt nem ker\'fclt be\'e9p\'edt\'e9sre\
+\
+crypto isakmp pol 1\
+encr aes\
+hash md5\
+auth pre\
+group 5\
+ex\
+crypto isakmp key cisco add 3.255.255.2\
+crypto ipsec trans transet esp-aes esp-md5-hmac\
+\
+\
+access-l 100 permit ip 192.168.1.0 0.0.0.15 192.168.0.0 0.0.0.255\
+crypto map vpnmap1 1 ipsec\
+set trans transet\
+match add 100\
+set peer 3.255.255.2\
+\
+ex\
+int g0/0/1\
+crypto map vpnmap1\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 crypto isakmp pol 1\
+encr aes\
+hash md5\
+auth pre\
+group 5\
+ex\
+crypto isakmp key cisco add 209.165.1.1\
+crypto ipsec trans transet esp-aes esp-md5-hmac\
+\
+\
+access-l 100 permit ip 192.168.0.0 0.0.0.255 192.168.1.0 0.0.0.15\
+crypto map vpnmap1 1 ipsec\
+set trans transet\
+match add 100\
+set peer 209.165.1.1\
+\
+ex\
+int se0/0/0\
+crypto map vpnmap1\
+\
+int tunnel 1\
+ip add 10.20.30.1 255.255.255.252\
+tunnel s g0/0/1\
+tunnel d 3.255.255.2\
+tunnel mod gre ip\
+ex\
+\
+ip route 192.168.0.0 255.255.255.0 10.20.30.2\
+\
+\
+int tunnel 1\
+ip add 10.20.30.2 255.255.255.252\
+tunnel s se0/0/0\
+tunnel d 209.165.1.1\
+tunnel mod gre ip\
+ex\
+\
+ip route 192.168.1.0 255.255.255.240 10.20.30.1\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+}
