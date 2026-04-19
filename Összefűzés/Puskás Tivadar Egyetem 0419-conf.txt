@@ -1,0 +1,83 @@
+Edge
+
+int gig0/0/0
+ip add 10.1.1.6 255.255.255.252
+no sh
+exit
+
+router ospf 10
+netw 10.1.1.4 0.0.0.3 area 0
+exit
+
+- netw 10.1.1.0 0.0.0.3 area 0 Edge routerből
+
+
+
+PTE-ASA
+
+enable
+
+
+conf t
+clock set 12:00:00 apr 13 2026
+hostname PTE-ASA
+domain-name core.ptuni.hu
+enable password class123
+
+int gig1/1
+desc PTE-RTR fele
+nameif PTE-IN
+security-level 100
+ip add 10.1.1.2 255.255.255.252
+no sh
+exit
+
+int gig1/2
+desc Edge fele
+nameif PTE-OUT
+security-level 0
+ip add 10.1.1.5 255.255.255.252
+no sh
+exit
+
+user Admin1 password cisco123
+user Admin2 password cisco123
+crypto key gen rsa modulus 2048
+y
+
+ssh timeout 5
+
+route PTE-OUT 0.0.0.0 0.0.0.0 10.1.1.6 1
+
+router ospf 10
+router 1.1.1.2
+netw 10.1.1.0 255.255.255.252 area 0
+netw 10.1.1.4 255.255.255.252 area 0
+def ori
+exit
+conf t
+
+
+object network PTE-S01
+host 192.168.1.2
+
+object network PTE-S02
+host 192.168.1.10
+
+object network PTE-LAN
+subnet 172.16.0.0 255.240.0.0
+
+object network PTE-VPNUSER
+subnet 192.168.0.0 255.255.255.0
+
+object network PTE-CORE
+subnet 10.0.0.0 255.254.0.0
+
+
+access-list 200 permit icmp any object PTE-LAN echo-reply
+access-list 200 permit icmp any object PTE-CORE echo-reply
+access-list 200 permit tcp any object PTE-S02 eq 80
+access-list 200 permit tcp any object PTE-S02 eq 443
+access-list 200 permit icmp object PTE-VPNUSER object PTE-LAN echo
+access-group 200 out interface PTE-IN
+
