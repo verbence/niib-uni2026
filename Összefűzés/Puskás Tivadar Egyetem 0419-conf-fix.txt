@@ -1,0 +1,31 @@
+PTE-ASA
+
+access-list 100 permit tcp any eq www any
+access-list 100 permit tcp any eq 443 any
+access-list 100 permit tcp any eq 500 any
+access-list 100 permit tcp any eq 4500 any
+
+access-group 100 in interface PTE-OUT
+
+
+MFF-MLS2
+
+int vlan 10
+ipv6 eigrp 10
+int vlan 20
+ipv6 eigrp 10
+int vlan 40
+ipv6 eigrp 10
+int vlan 99
+ipv6 eigrp 10
+
+MFF-MLS3
+
+int vlan 10
+ipv6 eigrp 10
+int vlan 20
+ipv6 eigrp 10
+int vlan 40
+ipv6 eigrp 10
+int vlan 99
+ipv6 eigrp 10
