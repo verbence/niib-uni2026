@@ -1,0 +1,19 @@
+GFF-MLS-1
+
+access-list 100 permit ip 172.16.18.0 0.0.0.31 any
+
+class-map TANARISUBNET
+match access-group 100
+exit
+
+policy-map TANAR-QOS
+class TANARISUBNET
+set precedence critical
+priority percent 25
+exit
+
+int gig1/0/1
+service-policy output TANAR-QOS
+exit
+
+
