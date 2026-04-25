@@ -1,0 +1,17 @@
+Edge
+
+router ospf 10
+netw 209.165.1.0 0.0.0.7 area 0
+def ori
+exit
+
+PTE-ASA
+router ospf 10
+- def ori
+exit
+
+PTE-RTR
+router ospf 10
+- def ori
+exit
+
