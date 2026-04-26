@@ -1,0 +1,8 @@
+PTE-ASA
+no access-list 100 extended permit tcp object PTE-VPNUSER object PTE-S01 eq www
+no access-list 100 extended permit icmp object PTE-VPNUSER object PTE-S01
+no access-list 100 extended permit tcp object PTE-VPNUSER object PTE-S01 eq ftp
+
+access-list 100 extended permit tcp object PTE-VPNUSER object PTE-S02 eq www
+access-list 100 extended permit icmp object PTE-VPNUSER object PTE-S02
+access-list 100 extended permit tcp object PTE-VPNUSER object PTE-S02 eq ftp
